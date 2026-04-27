@@ -1,6 +1,6 @@
 # StatsAdvertiserOffersApi
 
-All URIs are relative to *https://up.goadserver.com*
+All URIs are relative to *https://up.go-adserver.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
