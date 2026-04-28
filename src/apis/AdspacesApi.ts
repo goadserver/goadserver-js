@@ -16,27 +16,16 @@
 import * as runtime from '../runtime';
 import type {
   ApiV1AdspacesGet200Response,
-  ApiV1CampaignsTypeIdActivePatch200Response,
-  ApiV1CampaignsTypeIdActivePatchRequest,
 } from '../models/index';
 import {
     ApiV1AdspacesGet200ResponseFromJSON,
     ApiV1AdspacesGet200ResponseToJSON,
-    ApiV1CampaignsTypeIdActivePatch200ResponseFromJSON,
-    ApiV1CampaignsTypeIdActivePatch200ResponseToJSON,
-    ApiV1CampaignsTypeIdActivePatchRequestFromJSON,
-    ApiV1CampaignsTypeIdActivePatchRequestToJSON,
 } from '../models/index';
 
 export interface ApiV1AdspacesGetRequest {
     siteId?: number;
     page?: number;
     perPage?: number;
-}
-
-export interface ApiV1AdspacesIdActivePatchRequest {
-    id: number;
-    apiV1CampaignsTypeIdActivePatchRequest: ApiV1CampaignsTypeIdActivePatchRequest;
 }
 
 export interface ApiV1AdspacesIdGetRequest {
@@ -102,71 +91,6 @@ export class AdspacesApi extends runtime.BaseAPI {
      */
     async apiV1AdspacesGet(requestParameters: ApiV1AdspacesGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1AdspacesGet200Response> {
         const response = await this.apiV1AdspacesGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Creates request options for apiV1AdspacesIdActivePatch without sending the request
-     */
-    async apiV1AdspacesIdActivePatchRequestOpts(requestParameters: ApiV1AdspacesIdActivePatchRequest): Promise<runtime.RequestOpts> {
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling apiV1AdspacesIdActivePatch().'
-            );
-        }
-
-        if (requestParameters['apiV1CampaignsTypeIdActivePatchRequest'] == null) {
-            throw new runtime.RequiredError(
-                'apiV1CampaignsTypeIdActivePatchRequest',
-                'Required parameter "apiV1CampaignsTypeIdActivePatchRequest" was null or undefined when calling apiV1AdspacesIdActivePatch().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("apiKey", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
-        }
-
-        let urlPath = `/api/v1/adspaces/{id}/active`;
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
-
-        return {
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ApiV1CampaignsTypeIdActivePatchRequestToJSON(requestParameters['apiV1CampaignsTypeIdActivePatchRequest']),
-        };
-    }
-
-    /**
-     * Idempotent. `active=true` activates, `active=false` deactivates. This is the endpoint behind the **\"On / off only\"** key preset for publishers. Honors `resource_filter.adzone_ids` for per-key scoping to specific zones. 
-     * Activate or deactivate an adspace.
-     */
-    async apiV1AdspacesIdActivePatchRaw(requestParameters: ApiV1AdspacesIdActivePatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ApiV1CampaignsTypeIdActivePatch200Response>> {
-        const requestOptions = await this.apiV1AdspacesIdActivePatchRequestOpts(requestParameters);
-        const response = await this.request(requestOptions, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ApiV1CampaignsTypeIdActivePatch200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Idempotent. `active=true` activates, `active=false` deactivates. This is the endpoint behind the **\"On / off only\"** key preset for publishers. Honors `resource_filter.adzone_ids` for per-key scoping to specific zones. 
-     * Activate or deactivate an adspace.
-     */
-    async apiV1AdspacesIdActivePatch(requestParameters: ApiV1AdspacesIdActivePatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiV1CampaignsTypeIdActivePatch200Response> {
-        const response = await this.apiV1AdspacesIdActivePatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

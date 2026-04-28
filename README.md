@@ -51,7 +51,6 @@ All URIs are relative to *https://up.go-adserver.com*
 | ----- | ------ | ------------ | -------------
 *AccountApi* | [**apiV1AccountGet**](docs/AccountApi.md#apiv1accountget) | **GET** /api/v1/account | Identity check — returns the authenticated user + scopes of the calling key.
 *AdspacesApi* | [**apiV1AdspacesGet**](docs/AdspacesApi.md#apiv1adspacesget) | **GET** /api/v1/adspaces | List ad zones owned by the caller.
-*AdspacesApi* | [**apiV1AdspacesIdActivePatch**](docs/AdspacesApi.md#apiv1adspacesidactivepatch) | **PATCH** /api/v1/adspaces/{id}/active | Activate or deactivate an adspace.
 *AdspacesApi* | [**apiV1AdspacesIdGet**](docs/AdspacesApi.md#apiv1adspacesidget) | **GET** /api/v1/adspaces/{id} | Get a single adspace.
 *CampaignsApi* | [**apiV1CampaignsGet**](docs/CampaignsApi.md#apiv1campaignsget) | **GET** /api/v1/campaigns | List the caller\&#39;s campaigns across all types (or one type).
 *CampaignsApi* | [**apiV1CampaignsRonCampaignIdAdsAdIdZoneBidsGet**](docs/CampaignsApi.md#apiv1campaignsroncampaignidadsadidzonebidsget) | **GET** /api/v1/campaigns/ron/{campaignId}/ads/{adId}/zone-bids | List per-zone bid overrides for a RON ad.
