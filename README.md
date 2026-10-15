@@ -1,6 +1,8 @@
 # goadserver-sdk@1.0.0
 
-A TypeScript SDK client for the up.go-adserver.com API.
+> Official JavaScript/TypeScript client for the REST API of [GoAdserver](https://www.goadserver.com), the hosted ad server. API documentation and how to create an API key: [GoAdserver API docs](https://www.goadserver.com/docs/api-keys/).
+
+A TypeScript SDK client for the GoAdserver REST API.
 
 ## Usage
 
