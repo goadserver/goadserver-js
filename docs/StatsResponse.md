@@ -9,11 +9,13 @@ Name | Type
 `from` | Date
 `to` | Date
 `groupBy` | Array&lt;string&gt;
-`totals` | { [key: string]: number; }
+`totals` | { [key: string]: number | null; }
 `rows` | Array&lt;{ [key: string]: any; }&gt;
 `page` | number
 `perPage` | number
 `totalRows` | number
+`timezone` | string
+`ignoredMetrics` | Array&lt;string&gt;
 
 ## Example
 
@@ -30,6 +32,8 @@ const example = {
   "page": null,
   "perPage": null,
   "totalRows": null,
+  "timezone": Europe/Amsterdam,
+  "ignoredMetrics": null,
 } satisfies StatsResponse
 
 console.log(example)

@@ -6,8 +6,9 @@
 
 Name | Type
 ------------ | -------------
-`filterType` | string
+`filterType` | [FilterType](FilterType.md)
 `filterId` | number
+`appliesTo` | string
 
 ## Example
 
@@ -18,6 +19,7 @@ import type { ApiV1CampaignsTypeIdFiltersGet200ResponseFiltersInner } from 'goad
 const example = {
   "filterType": null,
   "filterId": null,
+  "appliesTo": null,
 } satisfies ApiV1CampaignsTypeIdFiltersGet200ResponseFiltersInner
 
 console.log(example)

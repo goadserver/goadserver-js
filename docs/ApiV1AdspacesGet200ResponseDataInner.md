@@ -8,9 +8,18 @@ Name | Type
 ------------ | -------------
 `id` | number
 `name` | string
-`site` | [ApiV1AdspacesGet200ResponseDataInnerSite](ApiV1AdspacesGet200ResponseDataInnerSite.md)
+`site` | [ApiV1TrackingConversionTypesPut200ResponseConversionTypesInner](ApiV1TrackingConversionTypesPut200ResponseConversionTypesInner.md)
+`siteid` | number
+`adspaceType` | string
+`adzoneTypeid` | number
+`adtypeId` | number
 `adType` | number
+`adsizeid` | number
 `isActive` | boolean
+`dateAdded` | Date
+`timeChanged` | number
+`isDeleted` | boolean
+`parentid` | number
 
 ## Example
 
@@ -22,8 +31,17 @@ const example = {
   "id": null,
   "name": null,
   "site": null,
+  "siteid": null,
+  "adspaceType": null,
+  "adzoneTypeid": null,
+  "adtypeId": null,
   "adType": null,
+  "adsizeid": null,
   "isActive": null,
+  "dateAdded": null,
+  "timeChanged": null,
+  "isDeleted": null,
+  "parentid": null,
 } satisfies ApiV1AdspacesGet200ResponseDataInner
 
 console.log(example)

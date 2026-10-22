@@ -7,6 +7,10 @@
 Name | Type
 ------------ | -------------
 `name` | string
+`copyAds` | boolean
+`copyTargeting` | boolean
+`copyBudget` | boolean
+`copySchedule` | boolean
 
 ## Example
 
@@ -16,6 +20,10 @@ import type { ApiV1CampaignsTypeIdClonePostRequest } from 'goadserver-sdk'
 // TODO: Update the object below with actual values
 const example = {
   "name": My remixed campaign,
+  "copyAds": null,
+  "copyTargeting": null,
+  "copyBudget": null,
+  "copySchedule": null,
 } satisfies ApiV1CampaignsTypeIdClonePostRequest
 
 console.log(example)

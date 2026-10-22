@@ -10,6 +10,7 @@ Name | Type
 `title` | string
 `type` | string
 `sortType` | string
+`orientation` | string
 `convType` | number
 `tags` | string
 `tagids` | Array&lt;string&gt;
@@ -27,6 +28,7 @@ const example = {
   "title": null,
   "type": null,
   "sortType": null,
+  "orientation": null,
   "convType": null,
   "tags": null,
   "tagids": null,

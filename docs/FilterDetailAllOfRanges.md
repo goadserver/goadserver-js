@@ -6,8 +6,13 @@
 
 Name | Type
 ------------ | -------------
+`id` | number
 `range` | string
+`ipStart` | string
+`ipEnd` | string
 `ipCount` | number
+`isActive` | boolean
+`country` | string
 
 ## Example
 
@@ -16,8 +21,13 @@ import type { FilterDetailAllOfRanges } from 'goadserver-sdk'
 
 // TODO: Update the object below with actual values
 const example = {
+  "id": null,
   "range": null,
+  "ipStart": null,
+  "ipEnd": null,
   "ipCount": null,
+  "isActive": null,
+  "country": null,
 } satisfies FilterDetailAllOfRanges
 
 console.log(example)

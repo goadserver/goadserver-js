@@ -7,6 +7,8 @@
 Name | Type
 ------------ | -------------
 `data` | [Array&lt;ApiV1SitesGet200ResponseDataInner&gt;](ApiV1SitesGet200ResponseDataInner.md)
+`page` | number
+`perPage` | number
 `totalRows` | number
 
 ## Example
@@ -17,6 +19,8 @@ import type { ApiV1SitesGet200Response } from 'goadserver-sdk'
 // TODO: Update the object below with actual values
 const example = {
   "data": null,
+  "page": null,
+  "perPage": null,
   "totalRows": null,
 } satisfies ApiV1SitesGet200Response
 

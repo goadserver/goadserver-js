@@ -6,9 +6,11 @@
 
 Name | Type
 ------------ | -------------
-`conversionTypes` | Array&lt;object&gt;
+`conversionTypes` | [Array&lt;ApiV1TrackingConversionTypesGet200ResponseConversionTypesInner&gt;](ApiV1TrackingConversionTypesGet200ResponseConversionTypesInner.md)
+`skipDedup` | Array&lt;number&gt;
 `addomain` | string
 `trackingVarName` | string
+`userid` | number
 
 ## Example
 
@@ -18,8 +20,10 @@ import type { ApiV1TrackingConversionTypesGet200Response } from 'goadserver-sdk'
 // TODO: Update the object below with actual values
 const example = {
   "conversionTypes": null,
+  "skipDedup": null,
   "addomain": null,
   "trackingVarName": null,
+  "userid": null,
 } satisfies ApiV1TrackingConversionTypesGet200Response
 
 console.log(example)

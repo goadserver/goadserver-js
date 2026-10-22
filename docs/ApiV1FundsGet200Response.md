@@ -21,13 +21,13 @@ import type { ApiV1FundsGet200Response } from 'goadserver-sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "currency": USD,
+  "currency": eur,
   "balance": 123.45,
   "pending": 50.0,
   "pendingCount": 1,
   "minBalance": 10.0,
   "lowBalance": false,
-  "lastDeposit": null,
+  "lastDeposit": 2026-10-01,
 } satisfies ApiV1FundsGet200Response
 
 console.log(example)

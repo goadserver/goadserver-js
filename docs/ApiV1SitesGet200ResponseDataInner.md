@@ -10,6 +10,13 @@ Name | Type
 `name` | string
 `url` | string
 `isDeleted` | boolean
+`sitestate` | number
+`sitestateName` | string
+`isVerified` | boolean
+`typeid` | number
+`mainCatid` | number
+`tags` | Array&lt;number&gt;
+`dateAdded` | string
 
 ## Example
 
@@ -22,6 +29,13 @@ const example = {
   "name": null,
   "url": null,
   "isDeleted": null,
+  "sitestate": null,
+  "sitestateName": null,
+  "isVerified": null,
+  "typeid": null,
+  "mainCatid": null,
+  "tags": null,
+  "dateAdded": null,
 } satisfies ApiV1SitesGet200ResponseDataInner
 
 console.log(example)

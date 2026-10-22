@@ -13,6 +13,9 @@ Name | Type
 `example` | any
 `_enum` | Array&lt;any&gt;
 `description` | string
+`adTypes` | Array&lt;number&gt;
+`sellingTypes` | Array&lt;number&gt;
+`notSellingTypes` | Array&lt;number&gt;
 
 ## Example
 
@@ -28,6 +31,9 @@ const example = {
   "example": null,
   "_enum": null,
   "description": null,
+  "adTypes": null,
+  "sellingTypes": null,
+  "notSellingTypes": null,
 } satisfies ApiV1CampaignsTypeSchemaGet200ResponseFieldsInner
 
 console.log(example)

@@ -9,6 +9,7 @@ Name | Type
 `id` | number
 `isActive` | boolean
 `changed` | boolean
+`pendingState` | number
 
 ## Example
 
@@ -20,6 +21,7 @@ const example = {
   "id": null,
   "isActive": null,
   "changed": null,
+  "pendingState": null,
 } satisfies ApiV1CampaignsTypeIdActivePatch200Response
 
 console.log(example)

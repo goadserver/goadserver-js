@@ -11,6 +11,10 @@ Name | Type
 `properties` | string
 `ratingid` | number
 `urlPrefix` | string
+`weight` | number
+`isFallback` | boolean
+`startAt` | [ApiV1CreativePoolsIdItemsItemIdPutRequestStartAt](ApiV1CreativePoolsIdItemsItemIdPutRequestStartAt.md)
+`endAt` | [ApiV1CreativePoolsIdItemsItemIdPutRequestEndAt](ApiV1CreativePoolsIdItemsItemIdPutRequestEndAt.md)
 
 ## Example
 
@@ -24,6 +28,10 @@ const example = {
   "properties": null,
   "ratingid": null,
   "urlPrefix": null,
+  "weight": null,
+  "isFallback": null,
+  "startAt": null,
+  "endAt": null,
 } satisfies ApiV1CreativePoolsIdItemsItemIdPutRequest
 
 console.log(example)

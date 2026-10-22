@@ -7,7 +7,7 @@
 Name | Type
 ------------ | -------------
 `data` | Array&lt;object&gt;
-`total` | number
+`meta` | [ApiV1CampaignsTypeCampaignIdAdsGet200ResponseMeta](ApiV1CampaignsTypeCampaignIdAdsGet200ResponseMeta.md)
 
 ## Example
 
@@ -17,7 +17,7 @@ import type { ApiV1CampaignsTypeCampaignIdAdsGet200Response } from 'goadserver-s
 // TODO: Update the object below with actual values
 const example = {
   "data": null,
-  "total": null,
+  "meta": null,
 } satisfies ApiV1CampaignsTypeCampaignIdAdsGet200Response
 
 console.log(example)

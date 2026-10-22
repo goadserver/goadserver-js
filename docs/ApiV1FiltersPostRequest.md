@@ -6,11 +6,13 @@
 
 Name | Type
 ------------ | -------------
-`type` | string
+`type` | [FilterType](FilterType.md)
 `name` | string
 `items` | Array&lt;string&gt;
 `campaignIds` | Array&lt;number&gt;
+`campaignType` | string
 `adType` | number
+`ipList` | string
 
 ## Example
 
@@ -23,7 +25,9 @@ const example = {
   "name": null,
   "items": null,
   "campaignIds": null,
+  "campaignType": null,
   "adType": null,
+  "ipList": null,
 } satisfies ApiV1FiltersPostRequest
 
 console.log(example)

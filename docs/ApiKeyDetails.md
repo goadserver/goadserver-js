@@ -12,6 +12,7 @@ Name | Type
 `scopes` | Array&lt;string&gt;
 `ipAllowlist` | string
 `rateLimitRpm` | number
+`strictFields` | boolean
 `expiresAt` | Date
 `lastUsedAt` | Date
 `lastUsedIp` | string
@@ -32,6 +33,7 @@ const example = {
   "scopes": null,
   "ipAllowlist": null,
   "rateLimitRpm": null,
+  "strictFields": null,
   "expiresAt": null,
   "lastUsedAt": null,
   "lastUsedIp": null,

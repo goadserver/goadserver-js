@@ -1,6 +1,7 @@
 
 # FilterDetail
 
+One filter. GET, create (201), PUT and POST …/items all answer with this shape. SubIDs are shown ENCODED when the account has SubID encoding on (send them back the same way). 
 
 ## Properties
 
@@ -14,7 +15,10 @@ Name | Type
 `itemCount` | number
 `items` | Array&lt;string&gt;
 `campaignIds` | Array&lt;string&gt;
+`campaignType` | string
+`appliesTo` | string
 `ranges` | [Array&lt;FilterDetailAllOfRanges&gt;](FilterDetailAllOfRanges.md)
+`imported` | number
 
 ## Example
 
@@ -31,7 +35,10 @@ const example = {
   "itemCount": null,
   "items": null,
   "campaignIds": null,
+  "campaignType": null,
+  "appliesTo": null,
   "ranges": null,
+  "imported": null,
 } satisfies FilterDetail
 
 console.log(example)

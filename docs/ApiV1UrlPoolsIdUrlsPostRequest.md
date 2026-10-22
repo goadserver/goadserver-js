@@ -10,6 +10,10 @@ Name | Type
 `title` | string
 `weight` | number
 `properties` | string
+`keywords` | string
+`isFallback` | boolean
+`startAt` | [ApiV1CreativePoolsIdItemsItemIdPutRequestStartAt](ApiV1CreativePoolsIdItemsItemIdPutRequestStartAt.md)
+`endAt` | [ApiV1CreativePoolsIdItemsItemIdPutRequestEndAt](ApiV1CreativePoolsIdItemsItemIdPutRequestEndAt.md)
 
 ## Example
 
@@ -22,6 +26,10 @@ const example = {
   "title": null,
   "weight": null,
   "properties": null,
+  "keywords": null,
+  "isFallback": null,
+  "startAt": null,
+  "endAt": null,
 } satisfies ApiV1UrlPoolsIdUrlsPostRequest
 
 console.log(example)

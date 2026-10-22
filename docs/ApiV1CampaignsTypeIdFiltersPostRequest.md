@@ -6,7 +6,7 @@
 
 Name | Type
 ------------ | -------------
-`filterType` | string
+`filterType` | [FilterType](FilterType.md)
 `filterId` | number
 
 ## Example

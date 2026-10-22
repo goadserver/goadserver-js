@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `id` | number
 `deleted` | boolean
+`pendingReview` | boolean
 
 ## Example
 
@@ -18,6 +19,7 @@ import type { ApiV1CampaignsTypeIdDelete200Response } from 'goadserver-sdk'
 const example = {
   "id": null,
   "deleted": null,
+  "pendingReview": null,
 } satisfies ApiV1CampaignsTypeIdDelete200Response
 
 console.log(example)

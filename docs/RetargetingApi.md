@@ -8,8 +8,8 @@ All URIs are relative to *https://up.go-adserver.com*
 | [**apiV1RetargetingPixelsIdActivePatch**](RetargetingApi.md#apiv1retargetingpixelsidactivepatch) | **PATCH** /api/v1/retargeting/pixels/{id}/active | Activate or deactivate a retargeting pixel. |
 | [**apiV1RetargetingPixelsIdDelete**](RetargetingApi.md#apiv1retargetingpixelsiddelete) | **DELETE** /api/v1/retargeting/pixels/{id} | Soft-delete a retargeting pixel and clear its captured visitors. |
 | [**apiV1RetargetingPixelsIdGet**](RetargetingApi.md#apiv1retargetingpixelsidget) | **GET** /api/v1/retargeting/pixels/{id} | Get one retargeting pixel. |
-| [**apiV1RetargetingPixelsIdPut**](RetargetingApi.md#apiv1retargetingpixelsidputoperation) | **PUT** /api/v1/retargeting/pixels/{id} | Rename a retargeting pixel. |
-| [**apiV1RetargetingPixelsPost**](RetargetingApi.md#apiv1retargetingpixelspostoperation) | **POST** /api/v1/retargeting/pixels | Create a retargeting pixel. |
+| [**apiV1RetargetingPixelsIdPut**](RetargetingApi.md#apiv1retargetingpixelsidput) | **PUT** /api/v1/retargeting/pixels/{id} | Update a retargeting pixel (name and visitor windows). |
+| [**apiV1RetargetingPixelsPost**](RetargetingApi.md#apiv1retargetingpixelspost) | **POST** /api/v1/retargeting/pixels | Create a retargeting pixel. |
 
 
 
@@ -18,6 +18,8 @@ All URIs are relative to *https://up.go-adserver.com*
 > ApiV1RetargetingPixelsGet200Response apiV1RetargetingPixelsGet()
 
 List the caller\&#39;s retargeting pixels.
+
+Every live list in one response — not paginated (&#x60;total_rows&#x60; is the count). Requires the tenant\&#39;s retargeting module (&#x60;modules.advertiser.retargetting&#x60;); 403 when it is off. 
 
 ### Example
 
@@ -148,11 +150,11 @@ example().catch(console.error);
 
 ## apiV1RetargetingPixelsIdDelete
 
-> apiV1RetargetingPixelsIdDelete(id)
+> ApiV1RetargetingPixelsIdDelete200Response apiV1RetargetingPixelsIdDelete(id)
 
 Soft-delete a retargeting pixel and clear its captured visitors.
 
-Sets &#x60;isdeleted&#x3D;1&#x60; in MySQL and asynchronously deletes the pixel\&#39;s rows from ClickHouse &#x60;rt_final&#x60;. Captured visitor IDs are gone — re-creating with the same name will start fresh. 
+Sets &#x60;isdeleted&#x3D;1&#x60; in MySQL and asynchronously deletes the pixel\&#39;s captured visitors (ClickHouse &#x60;rt_pixels&#x60;, the same cleanup the panel runs). Captured visitor IDs are gone — re-creating with the same name will start fresh. A campaign still pointing at the list (&#x60;rt_id&#x60; / &#x60;rt_exclude_id&#x60;) keeps the pointer. 
 
 ### Example
 
@@ -197,7 +199,7 @@ example().catch(console.error);
 
 ### Return type
 
-`void` (Empty response body)
+[**ApiV1RetargetingPixelsIdDelete200Response**](ApiV1RetargetingPixelsIdDelete200Response.md)
 
 ### Authorization
 
@@ -206,14 +208,14 @@ example().catch(console.error);
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Deleted |  -  |
-| **404** | Not found |  -  |
+| **404** | Not found (or already deleted) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -290,9 +292,11 @@ example().catch(console.error);
 
 ## apiV1RetargetingPixelsIdPut
 
-> apiV1RetargetingPixelsIdPut(id, apiV1RetargetingPixelsIdPutRequest)
+> RetargetingPixel apiV1RetargetingPixelsIdPut(id, retargetingPixelWrite)
 
-Rename a retargeting pixel.
+Update a retargeting pixel (name and visitor windows).
+
+Partial update: fields not sent keep their stored value. At least one editable field is required (422 \&quot;Nothing to update.\&quot; otherwise). Returns the updated record. 
 
 ### Example
 
@@ -301,7 +305,7 @@ import {
   Configuration,
   RetargetingApi,
 } from 'goadserver-sdk';
-import type { ApiV1RetargetingPixelsIdPutOperationRequest } from 'goadserver-sdk';
+import type { ApiV1RetargetingPixelsIdPutRequest } from 'goadserver-sdk';
 
 async function example() {
   console.log("🚀 Testing goadserver-sdk SDK...");
@@ -314,9 +318,9 @@ async function example() {
   const body = {
     // number
     id: 56,
-    // ApiV1RetargetingPixelsIdPutRequest
-    apiV1RetargetingPixelsIdPutRequest: ...,
-  } satisfies ApiV1RetargetingPixelsIdPutOperationRequest;
+    // RetargetingPixelWrite
+    retargetingPixelWrite: {"skipvisits":5},
+  } satisfies ApiV1RetargetingPixelsIdPutRequest;
 
   try {
     const data = await api.apiV1RetargetingPixelsIdPut(body);
@@ -336,11 +340,11 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | `number` |  | [Defaults to `undefined`] |
-| **apiV1RetargetingPixelsIdPutRequest** | [ApiV1RetargetingPixelsIdPutRequest](ApiV1RetargetingPixelsIdPutRequest.md) |  | |
+| **retargetingPixelWrite** | [RetargetingPixelWrite](RetargetingPixelWrite.md) |  | |
 
 ### Return type
 
-`void` (Empty response body)
+[**RetargetingPixel**](RetargetingPixel.md)
 
 ### Authorization
 
@@ -349,23 +353,26 @@ example().catch(console.error);
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Updated |  -  |
+| **200** | Updated record |  -  |
 | **404** | Not found |  -  |
+| **422** | Validation error or nothing to update. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
 ## apiV1RetargetingPixelsPost
 
-> RetargetingPixel apiV1RetargetingPixelsPost(apiV1RetargetingPixelsPostRequest)
+> RetargetingPixel apiV1RetargetingPixelsPost(retargetingPixelWrite)
 
 Create a retargeting pixel.
+
+Same write path and validation as the panel. Windows not sent are 0 (off). 
 
 ### Example
 
@@ -374,7 +381,7 @@ import {
   Configuration,
   RetargetingApi,
 } from 'goadserver-sdk';
-import type { ApiV1RetargetingPixelsPostOperationRequest } from 'goadserver-sdk';
+import type { ApiV1RetargetingPixelsPostRequest } from 'goadserver-sdk';
 
 async function example() {
   console.log("🚀 Testing goadserver-sdk SDK...");
@@ -385,9 +392,9 @@ async function example() {
   const api = new RetargetingApi(config);
 
   const body = {
-    // ApiV1RetargetingPixelsPostRequest
-    apiV1RetargetingPixelsPostRequest: ...,
-  } satisfies ApiV1RetargetingPixelsPostOperationRequest;
+    // RetargetingPixelWrite
+    retargetingPixelWrite: {"name":"Cart abandoners","rmdays":30,"skiphours":1},
+  } satisfies ApiV1RetargetingPixelsPostRequest;
 
   try {
     const data = await api.apiV1RetargetingPixelsPost(body);
@@ -406,7 +413,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiV1RetargetingPixelsPostRequest** | [ApiV1RetargetingPixelsPostRequest](ApiV1RetargetingPixelsPostRequest.md) |  | |
+| **retargetingPixelWrite** | [RetargetingPixelWrite](RetargetingPixelWrite.md) |  | |
 
 ### Return type
 
@@ -426,6 +433,7 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
+| **422** | Validation error — &#x60;errors&#x60; is keyed by the panel field names (&#x60;name&#x60;, &#x60;rmdays&#x60;, &#x60;skipdays&#x60;, &#x60;skiphours&#x60;, &#x60;skipvisits&#x60;), or an unknown key. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

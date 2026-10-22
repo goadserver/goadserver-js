@@ -10,11 +10,11 @@ All URIs are relative to *https://up.go-adserver.com*
 
 ## apiV1AdvertiserOffersStatsGet
 
-> StatsResponse apiV1AdvertiserOffersStatsGet(from, to, interval, groupBy, metrics, format, page, perPage, sort)
+> StatsResponse apiV1AdvertiserOffersStatsGet(from, to, interval, groupBy, metrics, filterOfferId, filterOfferTypeId, filterDevice, filterCountry, format, page, perPage, sort)
 
 CPA / affiliate offer performance — advertiser side.
 
-**group_by:** &#x60;offer&#x60;, &#x60;country&#x60;, &#x60;device&#x60;, &#x60;os&#x60;, &#x60;browser&#x60;.  **Metrics:** &#x60;clicks&#x60;, &#x60;conversions&#x60;, &#x60;cr&#x60;, &#x60;cpa&#x60;, &#x60;cost&#x60;, &#x60;conv_a&#x60;, &#x60;conv_b&#x60;, &#x60;conv_c&#x60;. 
+Performance for the advertiser\&#39;s CPA / affiliate offers. 
 
 ### Example
 
@@ -40,10 +40,18 @@ async function example() {
     to: 2013-10-20,
     // 'day' | 'hour' | 'week' | 'month' | 'sum' (optional)
     interval: interval_example,
-    // string | Comma-separated dimensions to aggregate by, in priority order. Max 4 dimensions. Available dimensions vary per endpoint — see the per-endpoint description.  (optional)
-    groupBy: groupBy_example,
-    // string | Optional comma-separated metric whitelist. When omitted, all metrics for the endpoint are returned.  (optional)
-    metrics: metrics_example,
+    // Array<'offer' | 'country' | 'device' | 'os' | 'browser'> | Dimensions to aggregate by. Multi-pick up to 8. (optional)
+    groupBy: ["offer","country"],
+    // Array<'clicks' | 'conversions' | 'cr' | 'cpa' | 'cost' | 'conv_a' | 'conv_b' | 'conv_c'> | Metrics to return. Multi-pick — leave empty for all. (optional)
+    metrics: ...,
+    // number | Offer ID. Look up via `GET /api/v1/offers`. (optional)
+    filterOfferId: 56,
+    // number | Offer-type ID. (optional)
+    filterOfferTypeId: 56,
+    // 1 | 2 | 3 | 4 | 5 | 6 | Device type:  | ID | Device | |----|--------| | 1  | Computer | | 2  | Tablet | | 3  | Phone | | 4  | Console | | 5  | Wearable | | 6  | TV |  (optional)
+    filterDevice: 56,
+    // string | ISO-3166 alpha-2 country code (e.g. `US`, `DE`, `BR`). (optional)
+    filterCountry: US,
     // 'json' | 'csv' (optional)
     format: format_example,
     // number (optional)
@@ -74,8 +82,12 @@ example().catch(console.error);
 | **from** | `Date` | ISO date — inclusive start. Defaults to 7 days ago. | [Optional] [Defaults to `undefined`] |
 | **to** | `Date` | ISO date — inclusive end. Defaults to today. Max range 92 days. | [Optional] [Defaults to `undefined`] |
 | **interval** | `day`, `hour`, `week`, `month`, `sum` |  | [Optional] [Defaults to `&#39;sum&#39;`] [Enum: day, hour, week, month, sum] |
-| **groupBy** | `string` | Comma-separated dimensions to aggregate by, in priority order. Max 4 dimensions. Available dimensions vary per endpoint — see the per-endpoint description.  | [Optional] [Defaults to `undefined`] |
-| **metrics** | `string` | Optional comma-separated metric whitelist. When omitted, all metrics for the endpoint are returned.  | [Optional] [Defaults to `undefined`] |
+| **groupBy** | `offer`, `country`, `device`, `os`, `browser` | Dimensions to aggregate by. Multi-pick up to 8. | [Optional] [Enum: offer, country, device, os, browser] |
+| **metrics** | `clicks`, `conversions`, `cr`, `cpa`, `cost`, `conv_a`, `conv_b`, `conv_c` | Metrics to return. Multi-pick — leave empty for all. | [Optional] [Enum: clicks, conversions, cr, cpa, cost, conv_a, conv_b, conv_c] |
+| **filterOfferId** | `number` | Offer ID. Look up via &#x60;GET /api/v1/offers&#x60;. | [Optional] [Defaults to `undefined`] |
+| **filterOfferTypeId** | `number` | Offer-type ID. | [Optional] [Defaults to `undefined`] |
+| **filterDevice** | `1`, `2`, `3`, `4`, `5`, `6` | Device type:  | ID | Device | |----|--------| | 1  | Computer | | 2  | Tablet | | 3  | Phone | | 4  | Console | | 5  | Wearable | | 6  | TV |  | [Optional] [Defaults to `undefined`] [Enum: 1, 2, 3, 4, 5, 6] |
+| **filterCountry** | `string` | ISO-3166 alpha-2 country code (e.g. &#x60;US&#x60;, &#x60;DE&#x60;, &#x60;BR&#x60;). | [Optional] [Defaults to `undefined`] |
 | **format** | `json`, `csv` |  | [Optional] [Defaults to `&#39;json&#39;`] [Enum: json, csv] |
 | **page** | `number` |  | [Optional] [Defaults to `1`] |
 | **perPage** | `number` |  | [Optional] [Defaults to `100`] |

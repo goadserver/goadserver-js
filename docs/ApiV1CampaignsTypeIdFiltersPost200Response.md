@@ -11,6 +11,8 @@ Name | Type
 `filterType` | string
 `filterId` | number
 `attached` | boolean
+`changed` | boolean
+`appliesTo` | string
 
 ## Example
 
@@ -24,6 +26,8 @@ const example = {
   "filterType": null,
   "filterId": null,
   "attached": null,
+  "changed": null,
+  "appliesTo": null,
 } satisfies ApiV1CampaignsTypeIdFiltersPost200Response
 
 console.log(example)

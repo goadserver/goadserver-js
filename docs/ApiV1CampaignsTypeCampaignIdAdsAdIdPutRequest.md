@@ -6,8 +6,48 @@
 
 Name | Type
 ------------ | -------------
+`title` | string
+`description` | string
+`destinationurl` | string
+`displayurl` | string
+`previewurl` | string
 `bid` | number
 `isactive` | number
+`sortWeight` | number
+`position` | number
+`displaytype` | string
+`properties` | string
+`urlPoolid` | number
+`creativeId` | number
+`iconId` | number
+`useImptracking` | boolean
+`imptrackingurl` | string
+`usekeywords` | boolean
+`keywords` | string
+`adOptions` | object
+`smartNetworkId` | number
+`chatFollowup` | string
+`chatPrice` | string
+`keywordMode` | string
+`videoOverlays` | [Array&lt;ApiV1CampaignsTypeCampaignIdAdsPostRequestVideoOverlaysInner&gt;](ApiV1CampaignsTypeCampaignIdAdsPostRequestVideoOverlaysInner.md)
+`creatives` | object
+`bannerType` | string
+`bannerUrl` | string
+`bannerIframeUrl` | string
+`bannerHtml` | string
+`bannerPoolId` | number
+`imageType` | string
+`imageUrl` | string
+`imagePoolId` | number
+`videoType` | string
+`videoUrl` | string
+`companionUrl` | string
+`companionWidth` | number
+`companionHeight` | number
+`videoPoolId` | number
+`htmlCode` | string
+`htmlTotalItems` | number
+`iconType` | string
 
 ## Example
 
@@ -16,8 +56,48 @@ import type { ApiV1CampaignsTypeCampaignIdAdsAdIdPutRequest } from 'goadserver-s
 
 // TODO: Update the object below with actual values
 const example = {
-  "bid": 0.0042,
+  "title": null,
+  "description": null,
+  "destinationurl": null,
+  "displayurl": null,
+  "previewurl": null,
+  "bid": 0.05,
   "isactive": null,
+  "sortWeight": null,
+  "position": null,
+  "displaytype": null,
+  "properties": null,
+  "urlPoolid": null,
+  "creativeId": null,
+  "iconId": null,
+  "useImptracking": null,
+  "imptrackingurl": null,
+  "usekeywords": null,
+  "keywords": null,
+  "adOptions": null,
+  "smartNetworkId": null,
+  "chatFollowup": null,
+  "chatPrice": null,
+  "keywordMode": null,
+  "videoOverlays": null,
+  "creatives": null,
+  "bannerType": null,
+  "bannerUrl": null,
+  "bannerIframeUrl": null,
+  "bannerHtml": null,
+  "bannerPoolId": null,
+  "imageType": null,
+  "imageUrl": null,
+  "imagePoolId": null,
+  "videoType": null,
+  "videoUrl": null,
+  "companionUrl": null,
+  "companionWidth": null,
+  "companionHeight": null,
+  "videoPoolId": null,
+  "htmlCode": null,
+  "htmlTotalItems": null,
+  "iconType": null,
 } satisfies ApiV1CampaignsTypeCampaignIdAdsAdIdPutRequest
 
 console.log(example)

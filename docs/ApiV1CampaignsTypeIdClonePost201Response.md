@@ -9,6 +9,7 @@ Name | Type
 `id` | number
 `clonedFrom` | number
 `isActive` | boolean
+`copied` | [ApiV1CampaignsTypeIdClonePost201ResponseCopied](ApiV1CampaignsTypeIdClonePost201ResponseCopied.md)
 
 ## Example
 
@@ -20,6 +21,7 @@ const example = {
   "id": null,
   "clonedFrom": null,
   "isActive": null,
+  "copied": null,
 } satisfies ApiV1CampaignsTypeIdClonePost201Response
 
 console.log(example)

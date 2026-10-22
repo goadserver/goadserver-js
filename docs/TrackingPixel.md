@@ -1,6 +1,7 @@
 
 # TrackingPixel
 
+Deprecated. A stored name + code per conversion type. Nothing in ad serving, postback handling or the panel reads these rows — a conversion is attributed by its click id and conversion-type slot (see GET /api/v1/tracking/conversion-types), not by `pixel_code`. 
 
 ## Properties
 

@@ -1,6 +1,7 @@
 
 # ModelError
 
+Every non-2xx response. See \"Errors\" in the API description for the code list.
 
 ## Properties
 
@@ -8,7 +9,10 @@ Name | Type
 ------------ | -------------
 `error` | string
 `message` | string
+`errors` | { [key: string]: Array&lt;string&gt;; }
 `scope` | string
+`unknownFields` | Array&lt;string&gt;
+`currentEtag` | string
 
 ## Example
 
@@ -19,7 +23,10 @@ import type { ModelError } from 'goadserver-sdk'
 const example = {
   "error": missing_scope,
   "message": null,
+  "errors": null,
   "scope": null,
+  "unknownFields": null,
+  "currentEtag": null,
 } satisfies ModelError
 
 console.log(example)

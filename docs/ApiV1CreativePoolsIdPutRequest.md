@@ -7,10 +7,12 @@
 Name | Type
 ------------ | -------------
 `title` | string
+`name` | string
 `sortType` | string
 `convType` | number
 `tags` | string
 `type` | string
+`orientation` | string
 
 ## Example
 
@@ -20,10 +22,12 @@ import type { ApiV1CreativePoolsIdPutRequest } from 'goadserver-sdk'
 // TODO: Update the object below with actual values
 const example = {
   "title": null,
+  "name": null,
   "sortType": null,
   "convType": null,
   "tags": null,
   "type": null,
+  "orientation": null,
 } satisfies ApiV1CreativePoolsIdPutRequest
 
 console.log(example)

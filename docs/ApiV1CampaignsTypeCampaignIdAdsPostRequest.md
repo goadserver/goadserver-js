@@ -20,6 +20,31 @@ Name | Type
 `creativeId` | number
 `bannerUrl` | string
 `bannerHtml` | string
+`nativeImageUrl` | string
+`bannerIframeUrl` | string
+`videoUrl` | string
+`videoType` | string
+`companionUrl` | string
+`companionWidth` | number
+`companionHeight` | number
+`imagePoolId` | number
+`htmlCode` | string
+`htmlTotalItems` | number
+`iconId` | number
+`iconType` | string
+`useImptracking` | boolean
+`imptrackingurl` | string
+`usekeywords` | boolean
+`keywords` | string
+`adOptions` | object
+`smartNetworkId` | number
+`chatFollowup` | string
+`chatPrice` | string
+`keywordMode` | string
+`videoOverlays` | [Array&lt;ApiV1CampaignsTypeCampaignIdAdsPostRequestVideoOverlaysInner&gt;](ApiV1CampaignsTypeCampaignIdAdsPostRequestVideoOverlaysInner.md)
+`position` | number
+`displaytype` | string
+`properties` | string
 `bansizeid` | number
 
 ## Example
@@ -30,7 +55,7 @@ import type { ApiV1CampaignsTypeCampaignIdAdsPostRequest } from 'goadserver-sdk'
 // TODO: Update the object below with actual values
 const example = {
   "title": Promo Q3 banner,
-  "bid": 0.0042,
+  "bid": 0.05,
   "destinationUrl": https://example.com/lander?src={subid},
   "description": null,
   "displayUrl": null,
@@ -43,6 +68,31 @@ const example = {
   "creativeId": null,
   "bannerUrl": null,
   "bannerHtml": null,
+  "nativeImageUrl": null,
+  "bannerIframeUrl": null,
+  "videoUrl": null,
+  "videoType": null,
+  "companionUrl": null,
+  "companionWidth": null,
+  "companionHeight": null,
+  "imagePoolId": null,
+  "htmlCode": null,
+  "htmlTotalItems": null,
+  "iconId": null,
+  "iconType": null,
+  "useImptracking": null,
+  "imptrackingurl": null,
+  "usekeywords": null,
+  "keywords": null,
+  "adOptions": null,
+  "smartNetworkId": null,
+  "chatFollowup": null,
+  "chatPrice": null,
+  "keywordMode": null,
+  "videoOverlays": null,
+  "position": null,
+  "displaytype": 1,4,
+  "properties": null,
   "bansizeid": null,
 } satisfies ApiV1CampaignsTypeCampaignIdAdsPostRequest
 

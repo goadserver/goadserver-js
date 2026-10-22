@@ -10,6 +10,10 @@ Name | Type
 `name` | string
 `isActive` | boolean
 `visitors` | number
+`purgeDaysAfter` | number
+`skipDaysAfter` | number
+`skipBeforeHours` | number
+`skipVisitsAfter` | number
 
 ## Example
 
@@ -22,6 +26,10 @@ const example = {
   "name": null,
   "isActive": null,
   "visitors": null,
+  "purgeDaysAfter": null,
+  "skipDaysAfter": null,
+  "skipBeforeHours": null,
+  "skipVisitsAfter": null,
 } satisfies RetargetingPixel
 
 console.log(example)

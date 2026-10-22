@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `title` | string
 `type` | string
+`orientation` | string
 `tags` | string
 
 ## Example
@@ -19,6 +20,7 @@ import type { ApiV1CreativePoolsPostRequest } from 'goadserver-sdk'
 const example = {
   "title": 300x250 Promo Q3,
   "type": null,
+  "orientation": null,
   "tags": 12,17,
 } satisfies ApiV1CreativePoolsPostRequest
 
